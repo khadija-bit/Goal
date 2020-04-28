@@ -27,13 +27,13 @@ def articles(id):
     # BBC_News =get_articles('bbc_news')
     return render_template('articles.html',title = title, articles = articles,cnn = cnn_news) 
 
-# @main.route('/search/<sources_name>')
-# def search(main_search):
-#     '''
-#     View function to display the search results
-#     '''
-#     sources_name_list = main_search.split(" ")
-#     sources_name_format = "+".json(sources_name_list)  
-#     searched_sources = search_sources(sources_name_format)
-#     title = f'search result for {sources_name}'
-#     return render_template('search.html',sources = searched_sources)       
+@main.route('/search/<sources_name>')
+def search(main_search):
+    '''
+    View function to display the search results
+    '''
+    sources_name_list = main_search.split(" ")
+    sources_name_format = "+".json(sources_name_list)  
+    searched_sources = search_sources(sources_name_format)
+    title = f'search result for {sources_name}'
+    return render_template('search.html',sources = searched_sources)       
