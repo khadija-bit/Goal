@@ -7,8 +7,7 @@ Khadija Hassan
 This is a website  application that display news source all around the world.it enable a user to catch up news around the world and also the can view a specific articles on the website.
 
 # Live Link
-
-
+* https://newsbroadcasts.herokuapp.com/
 
 # Setup instruction/ Installation
 git clone https://github.com/khadija-bit/New_API.git
