@@ -1,7 +1,17 @@
-{% macro displayNewsList(sources_list) %}
+{% macro displayNewsList(articles_list) %}
+
+{% for new in articles_list %}
+<li>{{new.title}}</li>
+
+
+{% endfor %}
+{% endmacro %}
+
+{% macro displayNewsourceList(sources_list) %}
 
 {% for new in sources_list %}
-<li>{{new.title}}</li>
-{% block content %} {% endblock %}
+<li>{{new.name}}</li>
+
+
 {% endfor %}
 {% endmacro %}

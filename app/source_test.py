@@ -18,6 +18,7 @@ class ArticleTest(unittest.TestCase):
         self.assertTrue(isinstance(self.new_articles,Articles))
 
 
+
 class SourceTest(unittest.TestCase):
     """
     Test Class to test behaviour of source class

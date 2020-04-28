@@ -3,7 +3,7 @@ import urllib.request,json
 from .models import source,article
 
 Articles = article.Articles
-Source = source.Source
+Sources = source.Sources
 
 # Getting api key
 apiKey = app.config['NEWS_API_KEY']
@@ -11,14 +11,14 @@ apiKey = app.config['NEWS_API_KEY']
 # Getting the news base url
 base_url = app.config['NEWS_ARTICLES_BASE_URL']
 
-# Getting the articles url
-articles_url = app.config['NEWS_SOURCE_BASE_URL']
+# Getting the source url
+sources_url = app.config['NEWS_SOURCE_BASE_URL']
 
-def get_articles(category):
+def get_articles(id):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = base_url.format(category,apiKey)
+    get_articles_url = base_url.format(id,apiKey)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -59,11 +59,11 @@ def process_articles(articles_list):
     return articles_results        
 
 
-def get_sources(id):
+def get_sources():
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = sources_url.format(id,apikey)
+    get_sources_url = sources_url.format(apiKey)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -71,10 +71,10 @@ def get_sources(id):
 
         sources_results = None
 
-        if get_sources_response['articles']:
-            sources_results_list = get_sources_response['articles']
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
             sources_results = process_sources(sources_results_list)
-
+        # print(sources_results)
 
     return sources_results   
 
@@ -88,7 +88,9 @@ def process_sources(sources_list):
        sources_results: A list of sources objects  
     '''
     sources_results = []
+
     for sources_item in sources_list:
+        print(sources_results)
         id = sources_item.get('id')
         name = sources_item.get('name')
         description = sources_item.get('description')
@@ -96,7 +98,8 @@ def process_sources(sources_list):
         category = sources_item.get('category')
         country = sources_item.get('country')
 
-        if image:
-            sources_results = Source(id,name,description,url,category,country)
+        if name:
+            sources_objects = Sources(id,name,description,url,category,country)
+            sources_results.append(sources_objects)
 
-    return sources_results        
+    return sources_results
