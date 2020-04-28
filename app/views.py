@@ -32,4 +32,4 @@ def search(sources_name):
     sources_name_format = "+".json(sources_name_list)  
     searched_sources = search_sources(sources_name_format)
     title = f'search result for {sources_name}'
-    return render_template('seatch.html',sources = searched_sources)       
+    return render_template('search.html',sources = searched_sources)       
