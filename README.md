@@ -18,7 +18,7 @@ Any feedback contact this email  sumeyahassan34@gmail.com
 
 # Technology used
 * python3.6
-* Flask
+<!-- * Flask -->
 * Bootstrap
 * Heroku
 
