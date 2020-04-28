@@ -14,11 +14,11 @@ base_url = app.config['NEWS_ARTICLES_BASE_URL']
 # Getting the source url
 sources_url = app.config['NEWS_SOURCE_BASE_URL']
 
-def get_articles(id):
+def get_articles(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = base_url.format(id,apiKey)
+    get_articles_url = base_url.format(category,apiKey)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -32,6 +32,28 @@ def get_articles(id):
 
 
     return articles_results        
+
+def get_article(id):
+    get_article_details_url = base_url.format(id,apiKey)
+
+    with urllib.request.urlopen(get_article_details_url) as url:
+        article_detail_data = url.read()
+        article_detail_response = json.loads(article_detail_data)
+
+        article_object = None
+
+        if article_detail_response:
+            id = article_detail_response.get('id')
+            name = article_detail_response.get('name')
+            title = article_detail_response.get('title')
+            description = article_detail_response.get('description')
+            url = article_detail_response.get('url')
+            publishedAt = article_detail_response.get('publishedAt')
+            content = article_detail_response.get('content')
+
+    return article_object        
+
+     
 
 
 def process_articles(articles_list):
@@ -77,6 +99,27 @@ def get_sources():
         # print(sources_results)
 
     return sources_results   
+
+
+def get_source(id):
+    get_source_details_url = sources_url.format(id,apiKey)
+
+    with urllib.request.urlopen(get_source_details_url) as url:
+        source_detail_data = url.read()
+        source_detail_response = json.loads(source_detail_data)
+
+        source_object = None
+
+        if source_detail_response:
+            id = source_detail_response.get('id')
+            name = source_detail_response.get('name')
+            title = source_detail_response.get('title')
+            description = source_detail_response.get('description')
+            url = source_detail_response.get('url')
+            publishedAt = source_detail_response.get('publishedAt')
+            content = source_detail_response.get('content')
+
+    return source_object
 
 
 def process_sources(sources_list):

@@ -1,23 +1,22 @@
-{% import 'macros.html' as macro%}
-    {% block content %}
-        <!--CNN news-->
-        <h3>CNN News</h3>
-        <ul>
-            <li>{{ macro.displayNewsList(cnn)}}</li>
-        </ul>
-        <!--BBC News-->
-        <h3>BBC News</h3>
-        <ul>
-            <li>{{macro.displayNewsList(bbc_news)}}</li>
-        </ul>
-        <!--FOX News-->
-        <h3>FOX News</h3>
-        <ul>
-            <li>{{macro.displayNewsList(fox_news)}}</li>
-        </ul>
-         <!-- aljazeera News -->
-         <!-- <h3>aljazeera News</h3>
-         <ul>
-             <li>{{macro.displayNewsList(AlJazeera)}}</li>
-         </ul> -->
-    {% endblock %}
+<!-- {% import 'macros.html' as macro%} -->
+{% extends 'base.html'%}
+  <!-- Content block -->
+{% block content %}
+<div class="container">
+
+    <!-- Poster background -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{articles.url}}) no-repeat center center">
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 articles-details">
+            <h3>{{ articles.title }}</h3>
+
+            {{articles.content}}
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

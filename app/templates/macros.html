@@ -1,7 +1,8 @@
 {% macro displayNewsList(articles_list) %}
 
 {% for new in articles_list %}
-<li>{{new.title}}</li>
+<img src="{{new.url}}" alt="{{new.title}}">
+
 
 
 {% endfor %}
@@ -10,8 +11,21 @@
 {% macro displayNewsourceList(sources_list) %}
 
 {% for new in sources_list %}
-<li>{{new.name}}</li>
+   <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 sources-card">
+    <img src="{{new.url}}" alt="{{new.name}}">
+      <!-- <p class="text-center">
+       <li>{{new.name}}</li>
+      </p> -->
 
-
+      <p class="text-center">
+          <li>{{new.description}}</li>
+      </p>
+      <p class="text-center">
+        <li>{{new.category}}</li>
+    </p>
+      <!-- <p class="text-center">
+          <li>{{new.url}}</li>
+      </p> -->
+  </div>
 {% endfor %}
 {% endmacro %}
