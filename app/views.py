@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requests import get_sources,get_article
+from .requests import get_sources,get_article,get_articles
 
 # Views
 @app.route('/')
@@ -19,5 +19,6 @@ def articles(id):
     '''
     articles = get_article(id)
     title = f'(articles.title)'
-
-    return render_template('articles.html',title = title, articles = articles)  
+    cnn_news = get_articles('cnn') 
+    # BBC_News =get_articles('bbc_news')
+    return render_template('articles.html',title = title, articles = articles,cnn = cnn_news)  
