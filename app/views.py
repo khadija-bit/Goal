@@ -21,4 +21,15 @@ def articles(id):
     title = f'(articles.title)'
     cnn_news = get_articles('cnn') 
     # BBC_News =get_articles('bbc_news')
-    return render_template('articles.html',title = title, articles = articles,cnn = cnn_news)  
+    return render_template('articles.html',title = title, articles = articles,cnn = cnn_news) 
+
+@app.route('/search/<sources_name>')
+def search(sources_name):
+    '''
+    View function to display the search results
+    '''
+    sources_name_list = sources_name.split(" ")
+    sources_name_format = "+".json(sources_name_list)  
+    searched_sources = search_sources(sources_name_format)
+    title = f'search result for {sources_name}'
+    return render_template('seatch.html',sources = searched_sources)       

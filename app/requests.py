@@ -146,3 +146,33 @@ def process_sources(sources_list):
             sources_results.append(sources_objects)
 
     return sources_results
+
+def search_articles(article_name):
+    search_articles_url = 'http://newsapi.org/v2/search/top-headlines?sources={}&apiKey={}&query={}'.format(apiKey,article_name)
+
+    with urllib.request.urlopen(search_articles_url) as url:
+        search_articles_data = url.read()
+        search_articles_response = json.loads(search_articles_data)
+
+        search_articles_results = None
+
+        if search_articles_response['articles']:
+            search_articles_list = search_articles_response['articles']
+            search_articles_results = process_articles(search_articles_list)
+
+    return search_articles_results   
+
+def search_sources(sources_name):
+    search_sources_url = 'https://newsapi.org/v2/search/sources?apiKey={}&query={}'.format(apiKey,sources_name)
+
+    with urllib.request.urlopen(search_sources_url) as url:
+        search_sources_data = url.read()
+        search_sources_response = json.loads(search_sources_data)
+
+        search_sources_results = None
+
+        if search_sources_response['sources']:
+            search_sourcess_list = search_sources_response['sources']
+            search_sources_results = process_sources(search_sources_list)
+
+    return search_sources_results 
