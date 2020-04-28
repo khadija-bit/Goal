@@ -1,3 +1,35 @@
+# NEWS_API
+
+#  Author
+Khadija Hassan
+
+# Description
+This is a website  application that display news source all around the world.it enable a user to catch up news around the world and also the can view a specific articles on the website.
+
+# Live Link
+
+
+
+# Setup instruction/ Installation
+git clone https://github.com/khadija-bit/New_API.git
+
+# Contact Information
+Any feedback contact this email  sumeyahassan34@gmail.com
+
+# Technology used
+* python3.6
+* Flask
+* Bootstrap
+* Heroku
+
+
+# Running the Application
+ * Run the application in terminal
+       chmod a+x start.sh
+       ./start.sh
+ * Exporting the configuration
+            export NEWS_API_KEY=< your apikey >
+          
 
 # LICENSE
 
