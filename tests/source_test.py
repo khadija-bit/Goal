@@ -1,8 +1,8 @@
 import unittest
-from models import source,article
+from app.models import source,article
 
 Articles = article.Articles
-Source = source.Source
+Sources = source.Sources
 
 class ArticleTest(unittest.TestCase):
     """
@@ -27,7 +27,7 @@ class SourceTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_source = Source('','','','','','')
+        self.new_source = Sources('','','','','','')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source,Source))   
