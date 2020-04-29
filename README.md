@@ -24,11 +24,21 @@ Any feedback contact this email  sumeyahassan34@gmail.com
 
 # Running the Application
  * Run the application in terminal
+  ```bash
        chmod a+x start.sh
        ./start.sh
+   ```     
  * Exporting the configuration
-            export NEWS_API_KEY=< your apikey >
-          
+ ```bash
+      export NEWS_API_KEY=< your apikey >
+  ```      
+  * Testing the application
+  ```bash
+   python3.6 manage.py test
+   ``` 
+    
+ # Known bugs   
+   they are no bugs 
 
 # LICENSE
 
