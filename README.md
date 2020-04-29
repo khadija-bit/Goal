@@ -10,7 +10,27 @@ This is a website  application that display news source all around the world.it 
 * https://newsbroadcasts.herokuapp.com/
 
 # Setup instruction/ Installation
-git clone https://github.com/khadija-bit/New_API.git
+* git clone https://github.com/khadija-bit/New_API.git
+
+Creating a Virtual Environment
+```bash
+$ python3.6 -m venv --without-pip virtual
+
+$ curl https://bootstrap.pypa.io/get-pip.py | python
+
+$ source virtual/bin/activate
+```
+Deactivating a virtual environment
+```bash
+$ deactivate
+```
+Installing Flask
+```bash
+pip3 install Flask
+pip install flask-bootstrap
+pip install flask-script
+
+```
 
 # Contact Information
 Any feedback contact this email  sumeyahassan34@gmail.com
